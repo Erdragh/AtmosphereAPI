@@ -1,6 +1,7 @@
 package dev.erdragh.atmosphereapi
 
 import net.minecraft.core.Registry
+import net.minecraft.core.registries.Registries.BIOME
 import net.minecraft.resources.ResourceKey
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
@@ -13,5 +14,6 @@ object GasRegistry {
     @SubscribeEvent
     fun registerDatapackRegistries(event: DataPackRegistryEvent.NewRegistry) {
         event.dataPackRegistry(GAS_REGISTRY_KEY, Gas.CODEC, Gas.CODEC)
+        BIOME
     }
 }

@@ -1,0 +1,25 @@
+{
+  "replace": true,
+  "values": {
+    "minecraft:overworld": {
+      "gasses": [
+        {
+          "amount": 78.08,
+          "gas": "atmosphereapi:nitrogen"
+        },
+        {
+          "amount": 20.95,
+          "gas": "atmosphereapi:oxygen"
+        },
+        {
+          "amount": 0.93,
+          "gas": "atmosphereapi:argon"
+        },
+        {
+          "amount": 0.03,
+          "gas": "atmosphereapi:carbon_dioxide"
+        }
+      ]
+    }
+  }
+}

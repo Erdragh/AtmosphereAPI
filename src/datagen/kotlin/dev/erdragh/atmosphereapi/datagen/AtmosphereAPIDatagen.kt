@@ -31,5 +31,10 @@ object AtmosphereAPIDatagen {
             event.includeClient(),
             AtmosphereAPILangEn(output)
         )
+
+        generator.addProvider(
+            event.includeServer() || event.includeClient(),
+            AtmosphereProvider(output, lookupProvider)
+        )
     }
 }
