@@ -13,5 +13,8 @@ fun LanguageProvider.add(key: ResourceKey<Gas>, translation: String) {
 class AtmosphereAPILangEn(output: PackOutput) : LanguageProvider(output, AtmosphereAPI.MODID, "en_US") {
     override fun addTranslations() {
         add(OXYGEN, "Oxygen")
+        add(NITROGEN, "Nitrogen")
+        add(ARGON, "Argon")
+        add(CARBON_DIOXIDE, "Carbon Dioxide")
     }
 }

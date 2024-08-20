@@ -1,3 +1,6 @@
 {
+  "atmosphereapi.gasses.atmosphereapi.argon": "Argon",
+  "atmosphereapi.gasses.atmosphereapi.carbon_dioxide": "Carbon Dioxide",
+  "atmosphereapi.gasses.atmosphereapi.nitrogen": "Nitrogen",
   "atmosphereapi.gasses.atmosphereapi.oxygen": "Oxygen"
 }

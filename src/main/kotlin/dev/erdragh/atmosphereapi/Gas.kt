@@ -4,11 +4,19 @@ import com.mojang.serialization.Codec
 import com.mojang.serialization.codecs.RecordCodecBuilder
 import net.minecraft.resources.ResourceKey
 
-data class Gas(val name: String) {
+/**
+ * Data class representing a Gas. The data stored in here assumes [STP](https://en.wikipedia.org/wiki/Standard_temperature_and_pressure)
+ */
+data class Gas(
+    /**
+     * Density of the Gas in g/L
+     */
+    val density: Double
+) {
     companion object {
         val CODEC: Codec<Gas> = RecordCodecBuilder.create {
             it.group(
-                Codec.STRING.fieldOf("name").forGetter(Gas::name)
+                Codec.DOUBLE.fieldOf("density").forGetter(Gas::density)
             ).apply(it, ::Gas)
         }
 
