@@ -1,0 +1,24 @@
+[versions]
+
+# Minecraft
+minecraft = "1.21.1"
+minecraftRange = "[1.21.1, )"
+neoforge = "21.1.22"
+neoforgeRange = "[21.1, )"
+loaderRange = "[4, )"
+parchment = "2024.07.28"
+
+# Plugins
+moddev = "1.0.19"
+kotlin = "2.0.10"
+
+# Dependencies
+kff = "5.5.0"
+kffRange = "[5.5, )"
+
+[libraries]
+kff = { module = "thedarkcolour:kotlinforforge-neoforge", version.ref = "kff" }
+
+[plugins]
+moddev = { id = "net.neoforged.moddev", version.ref = "moddev" }
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
