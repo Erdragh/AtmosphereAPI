@@ -111,6 +111,7 @@ neoForge {
 
         register("data") {
             data()
+            sourceSet = sourceSets.named("datagen").get()
             mods = setOf(neoForge.mods.named(datagenModId).get())
 
             // example of overriding the workingDirectory set in configureEach above, uncomment if you want to use it
