@@ -24,3 +24,6 @@ runs
 run-data
 .kotlin
 repo
+
+# datagen
+src/generated/resources/.cache
