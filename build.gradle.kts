@@ -49,7 +49,8 @@ kotlin.compilerOptions {
 
 sourceSets {
     register("datagen") {
-        compileClasspath += main.get().output
+        compileClasspath += main.get().output + main.get().compileClasspath
+        runtimeClasspath += main.get().output + main.get().runtimeClasspath
     }
 }
 
@@ -65,12 +66,16 @@ neoForge {
     // This line is optional. Access Transformers are automatically detected
     // accessTransformers = project.files("src/main/resources/META-INF/accesstransformer.cfg")
 
+    val datagenModId = "$modId-datagen"
     mods {
         // define mod <-> source bindings
         // these are used to tell the game which sources are for which mod
         // mostly optional in a single mod project
         // but multi mod projects should define one per mod
         register(modId) {
+            sourceSet(sourceSets.main.get())
+        }
+        register(datagenModId) {
             sourceSet(sourceSets.main.get())
             sourceSet(sourceSets.named("datagen").get())
         }
@@ -79,6 +84,10 @@ neoForge {
     // Default run configurations.
     // These can be tweaked, removed, or duplicated as needed.
     runs {
+        configureEach {
+            mods = setOf(neoForge.mods.named(modId).get())
+        }
+
         register("client") {
             client()
 
@@ -102,6 +111,7 @@ neoForge {
 
         register("data") {
             data()
+            mods = setOf(neoForge.mods.named(datagenModId).get())
 
             // example of overriding the workingDirectory set in configureEach above, uncomment if you want to use it
             // gameDirectory = project.file("run-data")
@@ -120,7 +130,6 @@ neoForge {
 // "optional", meaning it will not be pulled by dependents of this mod.
 configurations {
     val localRuntime = register("localRuntime")
-    named("datagenImplementation").extendsFrom(implementation)
     named("runtimeClasspath").extendsFrom(localRuntime)
 }
 

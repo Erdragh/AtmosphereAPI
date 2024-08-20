@@ -11,6 +11,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent
 object AtmosphereAPIDatagen {
     @SubscribeEvent
     fun gatherData(event: GatherDataEvent) {
+        println("Hello World Datagen 2")
         val generator = event.generator
         val lookupProvider = event.lookupProvider
 
