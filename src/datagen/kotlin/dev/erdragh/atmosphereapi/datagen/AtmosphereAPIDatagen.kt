@@ -12,6 +12,7 @@ object AtmosphereAPIDatagen {
     @SubscribeEvent
     fun gatherData(event: GatherDataEvent) {
         val generator = event.generator
+        val output = generator.packOutput
         val lookupProvider = event.lookupProvider
 
         generator.addProvider(
@@ -24,6 +25,11 @@ object AtmosphereAPIDatagen {
                     setOf(AtmosphereAPI.MODID)
                 )
             }
+        )
+
+        generator.addProvider(
+            event.includeClient(),
+            AtmosphereAPILangEn(output)
         )
     }
 }
