@@ -1,7 +1,7 @@
 package dev.erdragh.atmosphereapi
 
 import com.mojang.logging.LogUtils
-import net.neoforged.bus.api.IEventBus
+import net.minecraft.resources.ResourceLocation
 import net.neoforged.fml.ModContainer
 import net.neoforged.fml.common.Mod
 
@@ -13,8 +13,13 @@ class AtmosphereAPI {
         const val MODID = "atmosphereapi"
         // Directly reference a slf4j logger
         private val LOGGER = LogUtils.getLogger()
+
+        fun id(path: String): ResourceLocation {
+            return ResourceLocation.fromNamespaceAndPath(MODID, path)
+        }
     }
 
-    constructor(modEventBus: IEventBus, modContainer: ModContainer) {
+    constructor(modContainer: ModContainer) {
+        println(modContainer)
     }
 }

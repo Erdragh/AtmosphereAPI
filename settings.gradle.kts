@@ -1,3 +1,7 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
+rootProject.name = "AtmosphereAPI"
+
 pluginManagement {
     repositories {
         mavenLocal()
