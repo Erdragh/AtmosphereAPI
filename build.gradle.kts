@@ -90,6 +90,7 @@ neoForge {
 
         register("client") {
             client()
+            gameDirectory = project.file("runs/client")
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             systemProperty("neoforge.enabledGameTestNamespaces", modId)
@@ -98,6 +99,7 @@ neoForge {
         register("server") {
             server()
             programArgument("--nogui")
+            gameDirectory = project.file("runs/server")
             systemProperty("neoforge.enabledGameTestNamespaces", modId)
         }
 
@@ -106,11 +108,13 @@ neoForge {
         // The gametest system is also enabled by default for other run configs under the /test command.
         register("gameTestServer") {
             type = "gameTestServer"
+            gameDirectory = project.file("runs/server")
             systemProperty("neoforge.enabledGameTestNamespaces", modId)
         }
 
         register("data") {
             data()
+            gameDirectory = project.file("runs/data")
             sourceSet = sourceSets.named("datagen").get()
             mods = setOf(neoForge.mods.named(datagenModId).get())
 
@@ -119,6 +123,12 @@ neoForge {
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
             programArguments.addAll("--mod", modId, "--all", "--output", file("src/generated/resources/").absolutePath, "--existing", file("src/main/resources/").absolutePath)
+        }
+
+        configureEach {
+            if (!gameDirectory.asFile.get().exists()) {
+                gameDirectory.asFile.get().mkdirs()
+            }
         }
     }
 }
