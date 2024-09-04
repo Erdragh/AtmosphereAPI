@@ -3,14 +3,14 @@
 # Minecraft
 minecraft = "1.21.1"
 minecraftRange = "[1.21.1, )"
-neoforge = "21.1.22"
+neoforge = "21.1.37"
 neoforgeRange = "[21.1, )"
 loaderRange = "[4, )"
 parchment = "2024.07.28"
 
 # Plugins
-moddev = "1.0.19"
-kotlin = "2.0.10"
+moddev = "2.0.26-beta"
+kotlin = "2.0.20"
 
 # Dependencies
 kff = "5.5.0"
