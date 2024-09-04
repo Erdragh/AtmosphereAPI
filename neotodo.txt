@@ -1,0 +1,7 @@
+TODO in NeoForge:
+Special handler for reading dimension datamaps:
+- Vanilla dimensions only get added to the registry access on world creation, but datamaps are loaded on opening the create world screen
+- Skip datamaps on `minecraft:dimension` until dimensions are fully loaded:
+  Places where this happens
+  - CreateWorldScreen, multiple places. Probably at least on fresh creation and from world
+  - Possibly others
